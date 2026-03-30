@@ -1,4 +1,4 @@
-# Tech Landing Page – JavaScript, HTML, CSS Frontend Fundamentals Project 1
+# Client-Side Routed Marketing Landing Experience – JavaScript (ES Modules), HTML5, CSS3, History API, Intersection Observer Fundamental Project 1
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![HTML5](https://img.shields.io/badge/HTML5-Semantic-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -70,7 +70,7 @@ A **production-style learning project**: a responsive marketing-style site calle
 | **Responsive nav**  | Hamburger + full-screen menu on small viewports; closes on link click and on route change.                                        |
 | **SPA routing**     | Same-origin `a[href^="/"]` clicks are intercepted; `popstate` restores views when using browser back/forward.                     |
 | **Home page**       | Full-bleed hero, feature cards, showcase split, services cards with overlays, “How it works” + full-width banner, CTA band.       |
-| **Tech / Products** | Full-bleed heroes, split “stack” sections (image/text order varies), full-width footer banners.                                     |
+| **Tech / Products** | Full-bleed heroes, split “stack” sections (image/text order varies), full-width footer banners.                                   |
 | **Sign-up**         | Demo form: heading + fields + “Create account” in one panel; submit does not POST anywhere.                                       |
 | **Motion**          | Scroll-triggered reveals (`data-reveal` attributes + `IntersectionObserver`); optional parallax-style behavior where implemented. |
 | **Buttons**         | **Ripple** on click (`.btn-ripple`) and **periodic shine** on gradient CTAs (`.cta-shine-wrap` + layered `::before` / `::after`). |
@@ -142,12 +142,12 @@ export function unsplashPhoto(photoPath, opts = {}) {
 
 These paths are handled **in the browser** by `router.js` (not separate HTML files for each view):
 
-| Path        | Purpose                                                                     |
-| ----------- | --------------------------------------------------------------------------- |
-| `/`         | Home: hero, features, showcase, services, how-it-works, CTA band.           |
+| Path        | Purpose                                                                           |
+| ----------- | --------------------------------------------------------------------------------- |
+| `/`         | Home: hero, features, showcase, services, how-it-works, CTA band.                 |
 | `/tech`     | Hero, “Under the hood” (image left), mirrored stack (text left), one wide banner. |
-| `/products` | Hero, plans grid, “How this page is built” split, wide banner.                     |
-| `/sign-up`  | Demo registration UI.                                                       |
+| `/products` | Hero, plans grid, “How this page is built” split, wide banner.                    |
+| `/sign-up`  | Demo registration UI.                                                             |
 
 All of these routes are rendered by **`index.html` + `js/router.js`** (no separate HTML file per page).
 
