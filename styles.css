@@ -214,24 +214,72 @@ h3,
   align-items: center;
 }
 
-#navbar__logo {
-  background-image: linear-gradient(120deg, #ff5c5c 0%, #ffc371 45%, #6c5cff 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: flex;
+/* Logo: hover/background only on the padded pill, not the full navbar row height. */
+.navbar__logo-link {
+  display: inline-flex;
   align-items: center;
-  cursor: pointer;
   text-decoration: none;
-  font-size: clamp(1.35rem, 2vw, 2rem);
   font-family: var(--font-display);
   font-weight: 800;
 }
 
+.navbar__logo-pad {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.72rem;
+  border-radius: 10px;
+  transition: background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.navbar__logo-link:hover .navbar__logo-pad {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.navbar__logo-link:focus-visible .navbar__logo-pad {
+  outline: 2px solid rgba(255, 138, 92, 0.65);
+  outline-offset: 2px;
+}
+
+#navbar__logo .fa-gem {
+  font-size: 1.05rem;
+  color: var(--color-accent);
+}
+
+/* Shared wordmark: navbar + footer (SEO meta can still say “TechNEXT”). */
+.site-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12em;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.site-wordmark__tech {
+  color: #ff9f85;
+  font-weight: 800;
+}
+
+.site-wordmark__sep {
+  color: var(--color-muted);
+  font-weight: 600;
+  opacity: 0.45;
+  font-size: 0.92em;
+  user-select: none;
+}
+
+.site-wordmark__next {
+  color: #c4b5fd;
+  font-weight: 800;
+}
+
+.site-wordmark--footer {
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+}
+
 .fa-gem {
-  margin-right: 0.5rem;
-  -webkit-text-fill-color: var(--color-accent);
+  margin-right: 0;
 }
 
 .navbar__menu {
@@ -243,19 +291,25 @@ h3,
 }
 
 .navbar__item {
-  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar__links {
-  color: #fff;
-  display: flex;
+  color: rgba(244, 244, 248, 0.92);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  border-radius: var(--radius);
-  transition: color 0.25s ease, background 0.25s ease;
+  padding: 0.42rem 0.78rem;
+  height: auto;
+  min-height: 0;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .navbar__btn {
@@ -299,7 +353,22 @@ h3,
 
 .navbar__links:hover {
   color: #ffb199;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Current route: same family as hover plus a clear bottom accent (and AT gets aria-current). */
+.navbar__links--current {
+  color: #ffb199;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 -2px 0 rgba(255, 138, 92, 0.9);
+}
+
+.navbar__links--current:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar__cta--current {
+  box-shadow: 0 0 0 2px rgba(255, 138, 92, 0.55), 0 6px 20px rgba(255, 92, 92, 0.25);
 }
 
 @media screen and (max-width: 639px) {
@@ -1481,17 +1550,30 @@ h3,
 
 #footer__logo {
   color: #fff;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
   font-family: var(--font-display);
+  transition: opacity 0.25s ease;
 }
 
 #footer__logo:hover {
+  opacity: 0.92;
+}
+
+#footer__logo:hover .site-wordmark__tech {
   color: #ff8a5c;
-  transition: 0.3s ease-out;
+}
+
+#footer__logo:hover .site-wordmark__next {
+  color: #ddd6fe;
+}
+
+#footer__logo .fa-gem {
+  color: var(--color-accent);
+  font-size: 1.5rem;
 }
 
 .footer__links {

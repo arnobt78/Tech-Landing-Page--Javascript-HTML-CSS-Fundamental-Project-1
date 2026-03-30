@@ -13,6 +13,43 @@ import { initRouter, navigate } from "./router.js";
 import { initFooterRevealOnce, setupScrollEffects } from "./scroll-effects.js";
 import { initRipple } from "./ripple.js";
 
+/** Match router path normalization so the active nav item lines up with `ROUTES` keys. */
+function normalizeNavPath(pathname) {
+  if (!pathname || pathname === "/") return "/";
+  const trimmed = pathname.replace(/\/+$/, "");
+  return trimmed === "" ? "/" : trimmed;
+}
+
+/**
+ * Highlights the current page in the shell nav (and Sign Up when on `/sign-up`).
+ * Uses `aria-current="page"` for screen readers; CSS class mirrors hover styling.
+ */
+function updateNavCurrent() {
+  const path = normalizeNavPath(window.location.pathname);
+
+  document.querySelectorAll('.navbar__links[href^="/"]').forEach((el) => {
+    if (!(el instanceof HTMLAnchorElement)) return;
+    let linkPath = "/";
+    try {
+      linkPath = normalizeNavPath(new URL(el.href).pathname);
+    } catch {
+      return;
+    }
+    const on = linkPath === path;
+    el.classList.toggle("navbar__links--current", on);
+    if (on) el.setAttribute("aria-current", "page");
+    else el.removeAttribute("aria-current");
+  });
+
+  const signBtn = document.querySelector('.navbar__btn a.button[href="/sign-up"]');
+  if (signBtn instanceof HTMLAnchorElement) {
+    const on = path === "/sign-up";
+    signBtn.classList.toggle("navbar__cta--current", on);
+    if (on) signBtn.setAttribute("aria-current", "page");
+    else signBtn.removeAttribute("aria-current");
+  }
+}
+
 /** Toggle hamburger + slide-out menu; close when a link is chosen or the route changes. */
 function initMobileMenu() {
   const menu = document.querySelector("#mobile-menu");
@@ -97,6 +134,7 @@ function boot() {
   // New route = new nodes: observers must be reattached; also mimic traditional MPA scroll-to-top.
   const refreshMotion = () => {
     if (!outlet) return;
+    updateNavCurrent();
     setupScrollEffects(outlet);
     window.scrollTo({ top: 0, behavior: "auto" });
   };

@@ -94,7 +94,14 @@
     <!-- Shell navigation: persists across SPA route changes (not inside #app). -->
     <nav class="navbar navbar-shell" aria-label="Primary">
       <div class="navbar__container max-w-9xl inner-padding">
-        <a href="/" id="navbar__logo"><i class="fas fa-gem" aria-hidden="true"></i>TechNEXT</a>
+        <a href="/" id="navbar__logo" class="navbar__logo-link" aria-label="Tech / Next — Home">
+          <span class="navbar__logo-pad">
+            <i class="fas fa-gem" aria-hidden="true"></i>
+            <span class="site-wordmark">
+              <span class="site-wordmark__tech">Tech</span><span class="site-wordmark__sep" aria-hidden="true">/</span><span class="site-wordmark__next">Next</span>
+            </span>
+          </span>
+        </a>
         <div class="navbar__toggle" id="mobile-menu" role="button" tabindex="0" aria-label="Open menu">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -162,7 +169,12 @@
       <section class="social__media max-w-9xl inner-padding">
         <div class="social__media--wrap">
           <div class="footer__logo">
-            <a href="/" id="footer__logo"><i class="fas fa-gem" aria-hidden="true"></i>TechNEXT</a>
+            <a href="/" id="footer__logo" aria-label="Tech / Next — Home">
+              <i class="fas fa-gem" aria-hidden="true"></i>
+              <span class="site-wordmark site-wordmark--footer">
+                <span class="site-wordmark__tech">Tech</span><span class="site-wordmark__sep" aria-hidden="true">/</span><span class="site-wordmark__next">Next</span>
+              </span>
+            </a>
           </div>
           <p class="website__rights">&copy; <span id="footer-year"></span>. All rights reserved.</p>
           <div class="social__icons">
