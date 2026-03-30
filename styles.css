@@ -1015,6 +1015,18 @@ h3,
   object-fit: cover;
 }
 
+.tech-prefooter-banners {
+  width: 100%;
+}
+
+.tech-prefooter-banners .how__banner:first-child {
+  margin-bottom: 0;
+}
+
+.tech-prefooter-banners .how__banner:last-child {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
 .how__columns {
   display: grid;
   gap: 2rem;
@@ -1233,6 +1245,57 @@ h3,
     gap: clamp(2rem, 5vw, 4rem);
     align-items: center;
   }
+}
+
+.sign-up-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 640px) {
+  .sign-up-panel {
+    padding-top: 0.25rem;
+    margin-inline: 0;
+  }
+}
+
+.sign-up-head {
+  margin: 0;
+}
+
+.sign-up-head h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 800;
+  background-image: linear-gradient(120deg, #ff8a5c 0%, #ff5c5c 40%, #ffc371 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin: 0.35rem 0 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sign-up-lede {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  max-width: 42ch;
+}
+
+.sign-up-panel .sign-up-form {
+  margin-inline: 0;
+  max-width: none;
+  width: 100%;
+}
+
+.sign-up-panel .sign-up-note {
+  text-align: left;
+  margin-top: 0;
 }
 
 .sign-up-visual {

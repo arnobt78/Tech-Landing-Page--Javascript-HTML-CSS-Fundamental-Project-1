@@ -224,9 +224,14 @@ function renderTech() {
         </div>
       </div>
     </section>
-    <section class="how__banner" aria-hidden="true">
-      <img src="${images.tech.banner}" alt="" width="1920" height="800" loading="lazy" />
-    </section>
+    <div class="tech-prefooter-banners" aria-hidden="true">
+      <div class="how__banner" data-reveal data-reveal-from="top" data-reveal-delay="0" role="presentation">
+        <img src="${images.home.howBanner}" alt="" width="1400" height="600" loading="lazy" />
+      </div>
+      <div class="how__banner" data-reveal data-reveal-from="bottom" data-reveal-delay="40" role="presentation">
+        <img src="${images.home.showcase}" alt="" width="1200" height="750" loading="lazy" />
+      </div>
+    </div>
   `;
 }
 
@@ -291,40 +296,36 @@ function renderProducts() {
  */
 function renderSignUp() {
   return `
-    <div class="main page-hero page-hero--compact">
-      <div class="main__container max-w-9xl inner-padding">
-        <div class="main__content sign-up-intro" data-reveal>
-          <p class="eyebrow">Accounts</p>
-          <h1>SIGN UP</h1>
-          <p class="lede">This is a static demo form for learning: values are not sent anywhere.</p>
-        </div>
-      </div>
-    </div>
-    <section class="section sign-up-section" aria-labelledby="signup-form-heading">
+    <section class="section sign-up-section" aria-labelledby="signup-heading">
       <div class="max-w-9xl inner-padding sign-up-section__grid">
         <div class="sign-up-visual" data-reveal data-reveal-from="left" data-reveal-delay="0">
           <img src="${images.signUp.aside}" alt="People collaborating" width="800" height="1000" loading="lazy" />
         </div>
-        <div class="sign-up-form-wrap">
-        <h2 id="signup-form-heading" class="visually-hidden">Registration form</h2>
-        <form class="sign-up-form" data-reveal action="#" method="get">
-          <label class="form-field">
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" placeholder="Your name" />
-          </label>
-          <label class="form-field">
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
-          </label>
-          <label class="form-field">
-            <span>Password</span>
-            <input type="password" name="password" autocomplete="new-password" placeholder="Choose a password" />
-          </label>
-          <div class="cta-shine-wrap cta-shine-wrap--form">
-            <button type="submit" class="button sign-up-form__submit cta-shine-button btn-ripple">Create account</button>
-          </div>
-        </form>
-        <p class="sign-up-note" data-reveal data-reveal-delay="80">Already learning? <a href="/">Back home</a></p>
+        <div class="sign-up-panel">
+          <header class="sign-up-head" data-reveal data-reveal-from="right" data-reveal-delay="0">
+            <p class="eyebrow">Accounts</p>
+            <h1 id="signup-heading">Sign up</h1>
+            <p class="lede sign-up-lede">This is a static demo form for learning: values are not sent anywhere.</p>
+          </header>
+          <form class="sign-up-form" data-reveal data-reveal-from="right" data-reveal-delay="50" action="#" method="get" aria-labelledby="signup-heading">
+            <h2 class="visually-hidden">Your details</h2>
+            <label class="form-field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Your name" />
+            </label>
+            <label class="form-field">
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+            </label>
+            <label class="form-field">
+              <span>Password</span>
+              <input type="password" name="password" autocomplete="new-password" placeholder="Choose a password" />
+            </label>
+            <div class="cta-shine-wrap cta-shine-wrap--form">
+              <button type="submit" class="button sign-up-form__submit cta-shine-button btn-ripple">Create account</button>
+            </div>
+          </form>
+          <p class="sign-up-note" data-reveal data-reveal-from="right" data-reveal-delay="100">Already learning? <a href="/">Back home</a></p>
         </div>
       </div>
     </section>
